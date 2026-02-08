@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.automation'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'com.intuit.karate:karate-junit5:1.4.1'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty "karate.env", System.getProperty("karate.env")
+}
